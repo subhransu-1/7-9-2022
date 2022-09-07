@@ -23,10 +23,16 @@ workflows:
             timeout: '10m'
 
         - terraform/plan:
+            workspace-root: . 
             attach-workspace: true 
-            out: terraform 
-            path: terraform 
+            checkout: true 
             persist-workspace: true 
+            out: plan.out 
+            path: terraform 
+            resource_class: medium 
             tag: '1.0.0' 
-            var_file: terraform 
+            timeout: '10m' 
+        
+
+           
         
