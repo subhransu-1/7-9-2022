@@ -3,14 +3,12 @@ orbs:
   azure-cli: circleci/azure-cli@1.0.0
 jobs:
   login-to-azure:
-    executor: azure-cli/default
+    executor: azure-cli/azure-docker
     steps:
-      - azure-cli/install
-      - azure-cli/login-with-user:
-          alternate-tenant: false
+      - azure-cli/login-with-service-principal
       - run:
           command: az resource list
-          name: List resources of tenant stored as `AZURE_TENANT` env var
+          name: List resources of tenant stored as `AZURE_SP_TENANT` env var
 workflows:
   example-workflow:
     jobs:
