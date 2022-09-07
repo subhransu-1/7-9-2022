@@ -1,17 +1,14 @@
 version: 2.1
 orbs:
   terraform: circleci/terraform@3.1.0
-
-  jobs:
+jobs:
   example-job:
     docker:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
       - terraform/install:
-          arch: amd64 
           terraform_version: '1.2.8' 
-          timeout: '10m' 
 
 workflows:
   example-workflow:
