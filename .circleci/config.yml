@@ -20,4 +20,13 @@ workflows:
             path: terraform
             tag: '1.0.0' 
             workspace-root-dir: . 
-            timeout: '10m' 
+            timeout: '10m'
+
+        - terraform/plan:
+            attach-workspace: true 
+            out: terraform 
+            path: terraform 
+            persist-workspace: true 
+            tag: '1.0.0' 
+            var_file: terraform 
+        
