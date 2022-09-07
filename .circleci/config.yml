@@ -11,6 +11,13 @@ jobs:
           terraform_version: '1.2.8' 
 
 workflows:
-  example-workflow:
-    jobs:
-      - example-job
+    example-workflow:
+      jobs:
+        - terraform/init:
+            checkout: true 
+            attach-workspace: true 
+            resource_class: medium 
+            path: . 
+            tag: '1.0.0' 
+            workspace-root-dir: . 
+            timeout: '10m' 
